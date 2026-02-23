@@ -141,7 +141,7 @@ resource "aws_route" "public_route" {
 
 resource "aws_route" "private_route" {
     route_table_id = aws_route_table.free_tier_routetable.id
-    gateway_id = aws_instance.free_tier_nat_instance.id
+    network_interface_id = aws_instance.free_tier_nat_instance.primary_network_interface_id
     destination_cidr_block = aws_subnet.private_subnet.cidr_block
 }
 
